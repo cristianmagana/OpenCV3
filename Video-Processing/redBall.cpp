@@ -1,4 +1,9 @@
-/*
+// Filters converts BGR to HSV and filters out for red.
+// Need to apply findContour and createShape
+// Need to apply gid coordinates to center of object
+
+
+
 #include <iostream>
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
@@ -78,4 +83,4 @@ using namespace std;
    return 0;
 
 }
- */
+
