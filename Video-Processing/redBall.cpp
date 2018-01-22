@@ -1,8 +1,8 @@
-// Filters converts BGR to HSV and filters out for red.
-// Need to apply findContour and createShape
-// Need to apply gid coordinates to center of object
+// Converts video BGR to HSV and filters out for red.
+// Passes HSV through morphological transfermations.
 
-
+// Need to apply findContour and createShape.
+// Need to apply gid coordinates to center of object.
 
 #include <iostream>
 #include "opencv2/highgui/highgui.hpp"
