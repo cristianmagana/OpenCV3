@@ -6,7 +6,7 @@ using namespace cv;
 using namespace std;
 
 void contour(Mat image);
- int main( int argc, char** argv )
+int main( int argc, char** argv )
  {
     VideoCapture cap(0); //capture the video from web cam
 
@@ -16,18 +16,18 @@ void contour(Mat image);
          return -1;
     }
 
-    namedWindow("Control", CV_WINDOW_AUTOSIZE); //create a window called "Control"
-    namedWindow("Thresholded Image",CV_WINDOW_AUTOSIZE);
-  int iLowH = 0;
+ namedWindow("Control", CV_WINDOW_AUTOSIZE); //create a window called "Control"
+ namedWindow("Thresholded Image",CV_WINDOW_AUTOSIZE);
+ int iLowH = 0;
  int iHighH = 179;
 
-  int iLowS = 0;
+ int iLowS = 0;
  int iHighS = 255;
 
-  int iLowV = 0;
+ int iLowV = 0;
  int iHighV = 255;
 
-  //Create trackbars in "Control" window
+ //Create trackbars in "Control" window
  cvCreateTrackbar("LowH", "Thresholded Image", &iLowH, 179); //Hue (0 - 179)
  cvCreateTrackbar("HighH", "Thresholded Image", &iHighH, 179);
 
@@ -57,11 +57,11 @@ void contour(Mat image);
 
    inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
 
-  //morphological opening (remove small objects from the foreground)
+//morphological opening (remove small objects from the foreground)
   erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
   dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
-   //morphological closing (fill small holes in the foreground)
+//morphological closing (fill small holes in the foreground)
   dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
   erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
